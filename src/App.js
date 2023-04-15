@@ -8,6 +8,7 @@ import Login from './components/pages/Login';
 import Works from './components/pages/Works';
 import Terms from './components/pages/Terms';
 import Inventors from './components/pages/Inventors';
+import Dashboard from './components/pages/Dashboard';
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
           <Route path='/work' element={<Works/>}/>
           <Route path='/term' element={<Terms/>}/>
           <Route path='/inventors' element={<Inventors/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
     </Routes>
     </Router>
     </>

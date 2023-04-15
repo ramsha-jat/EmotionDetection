@@ -1,12 +1,16 @@
 import { TextField, Button, Box, Alert } from '@mui/material';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+
+
 const UserLogin = () => {
   const [error, setError] = useState({
     status: false,
     msg: "",
     type: ""
   })
+
+
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +19,7 @@ const UserLogin = () => {
       
       email: data.get('email'),
       password: data.get('password'),
-    }
+    } 
     if (actualData.email && actualData.password) {
       console.log(actualData);
       document.getElementById('login-form').reset()
@@ -35,7 +39,7 @@ const UserLogin = () => {
       <NavLink to='/sendpasswordresetemail' >Forgot Password ?</NavLink>
       {error.status ? <Alert severity={error.type} sx={{ mt: 3 }}>{error.msg}</Alert> : ''}
     </Box>
-  </>;
+   </>;
 };
 
 export default UserLogin;
