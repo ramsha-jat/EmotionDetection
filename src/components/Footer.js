@@ -36,7 +36,7 @@ function Footer() {
           <div className='footer-link-items'>
             <h2>Contact Us</h2>
             <Link to='/contact' className='linkhover'>Contact</Link>
-            <Link to='/' className='linkhover'>Support</Link>
+            <Link to='/support' className='linkhover'>Support</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>

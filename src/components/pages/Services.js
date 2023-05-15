@@ -42,8 +42,19 @@ export default function Services() {
     </p>
     <br></br>
     </div>
-    <div style={{width:'50%',color:'#000000'}}>
-    <video src='servicevid.mp4' autoPlay loop muted style={{width:'50%', height:"30rem",border:'1px solid green',margin:'1rem'}}/>
+    <div style={{width:'50%',color:'#000000',margin:"40px"}}>
+    <div class="multi-carousel vertical" style={{maxwidth: '20rem'}}>
+  <div class="multi-carousel-inner">
+    <div class="multi-carousel-item">
+      <img src="Face.webp"  alt="Table Full of Spices"class="w-100" style={{width:'570px'}}
+      />
+    </div>
+    <div class="multi-carousel-item">
+      <img src="mfaces.webp"alt="Manyfaces" class="w-100"style={{width:'570px'}}
+      />
+    </div>
+  </div>
+</div>
     </div>
     </div>
     <Footer></Footer> 

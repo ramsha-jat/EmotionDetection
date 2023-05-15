@@ -10,6 +10,7 @@ import Terms from './components/pages/Terms';
 import Inventors from './components/pages/Inventors';
 import Dashboard from './components/pages/Dashboard';
 import Contact from './components/pages/Contact';
+import Support from './components/pages/Support';
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
           <Route path='/inventors' element={<Inventors/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='contact' element={<Contact/>}/>
+          <Route path='support' element={<Support/>}/>
     </Routes>
     </Router>
     </>

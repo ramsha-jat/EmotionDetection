@@ -1,3 +1,4 @@
+import React from 'react';
 import { Grid, Card, Tabs, Tab, Box } from '@mui/material';
 import { useState } from 'react';
 import Registration from './Registration';
