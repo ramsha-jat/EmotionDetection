@@ -8,8 +8,10 @@ import Footer from '../Footer';
 
 const Login = (props) => {
   const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event) => {
+    event.preventDefault();
+    console.log('registration successful');
+
   }
   return <>
     <Grid container sx={{ height: '90vh' }}>
@@ -21,7 +23,7 @@ const Login = (props) => {
               {props.value === 0? <Tab label='Login' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> :  <Tab label='Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>}
               </Tabs>
             </Box>
-            {props.value === 0? <UserLogin /> :  <Registration />}
+            <UserLogin />
           </Box>
         </Card>
       </Grid>
