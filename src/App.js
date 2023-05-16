@@ -12,6 +12,7 @@ import Dashboard from './components/pages/Dashboard';
 import Contact from './components/pages/Contact';
 import Support from './components/pages/Support';
 import View from './components/View';
+import RegistrationForm from './components/pages/RegistrationForm';
 
 function App() {
   return (

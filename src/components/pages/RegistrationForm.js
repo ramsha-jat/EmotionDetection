@@ -2,9 +2,8 @@ import React from 'react';
 import {Grid, Card, Tabs, Tab, Box} from '@mui/material';
 import {useState} from 'react';
 import Registration from './Registration';
-import UserLogin from './UserLogin';
 import Footer from '../Footer';
-import RegistrationForm from "./RegistrationForm";
+
 
 
 const RegistrationForm = (props) => {
