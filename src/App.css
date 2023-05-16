@@ -90,8 +90,8 @@
 }
 
 .team-item:hover{
-  background: rgb(190, 242, 207);
-  color: white;
+  background: rgb(64, 84, 100);
+  color: black;
 }
 .team-item h3{
   margin: 20px 0px 1px 0px !important;
@@ -105,7 +105,7 @@
 
 }
 .team-item:hover h3{
-  color: #dddd;
+  color: #ffffff;
 }
 
 .team-info{
