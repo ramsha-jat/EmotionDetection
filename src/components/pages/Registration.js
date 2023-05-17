@@ -18,7 +18,7 @@ const Registration = (props) => {
         console.log('-------------------------------------');
         console.log(data.get('name'));
 
-        axios.post("http://10.102.168.193:3002/signup", {
+        axios.post("http://127.0.0.1:3002/signup", {
             name:data.get('name'),
             email:data.get('email'),
             password:data.get('password')
