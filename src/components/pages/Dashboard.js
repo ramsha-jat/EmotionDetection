@@ -1,9 +1,17 @@
 import React, {useEffect} from 'react'
 import '../../App.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import Webcam from "react-webcam";
 function Dashboard() {
 
+    const videoConstraints = {
+        width: { min: 480 },
+        height: { min: 720 },
+        aspectRatio: 0.6666666667,
+        facingMode: "user"
+      };
+
+      
     const inputRef = React.useRef(null);  // creates reference (to the invisible input)
     const [file, setFile] = React.useState(null);
 
@@ -133,6 +141,7 @@ function Dashboard() {
             </section>
             <section>
                 <div>
+                <Webcam imageSmoothing={true}  screenshotFormat='image/webp'  width={480} height={720} videoConstraints={videoConstraints} />
                 </div>
             </section>
         </>
