@@ -1,0 +1,27 @@
+POST http://localhost:3002/signup
+Content-Type: application/json
+
+{
+    "name": "Hassan Ali",
+    "email": "hassanali.bscsf19@iba-suk.edu.pk",
+    "password": "12345"
+}
+
+###
+POST http://localhost:3002/signin
+Content-Type: application/json
+
+{
+  "email": "johndoe@example.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:3002/signin
+Content-Type: application/json
+
+{
+  "email": "johndo2e@example.com",
+  "password": "password"
+}
+
