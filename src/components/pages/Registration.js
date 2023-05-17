@@ -6,7 +6,6 @@ const Registration = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
-        console.log('-------------------------------------');
         console.log(data.get('name'));
 
         axios.post("http://127.0.0.1:3002/signup", {
@@ -24,10 +23,6 @@ const Registration = (props) => {
         }).catch((err) => {
             console.log(err);
         })
-
-
-        // setError({status: true, msg: "All Fields are Required", type: 'error'})
-        // console.log('all fields are required');
 
     }
     return <>
