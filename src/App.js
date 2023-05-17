@@ -11,6 +11,9 @@ import Inventors from './components/pages/Inventors';
 import Dashboard from './components/pages/Dashboard';
 import Contact from './components/pages/Contact';
 import Support from './components/pages/Support';
+import View from './components/View';
+import RegistrationForm from './components/pages/RegistrationForm';
+
 function App() {
   return (
     <>
@@ -19,14 +22,15 @@ function App() {
     <Routes>
           <Route path='/' element={<Home/>} exact />
           <Route path='/services' element={<Services/>} />
-          <Route path='/sign-up' element={<Login value={1}/>} />
-          <Route path='/login' element={<Login value={0}/>}/>
+          <Route path='/sign-up' element={<RegistrationForm />} />
+          <Route path='/login' element={<Login/>}/>
           <Route path='/work' element={<Works/>}/>
           <Route path='/term' element={<Terms/>}/>
           <Route path='/inventors' element={<Inventors/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='contact' element={<Contact/>}/>
           <Route path='support' element={<Support/>}/>
+          <Route path='/view' element={<View/>}/>
     </Routes>
     </Router>
     </>

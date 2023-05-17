@@ -69,10 +69,10 @@ Data Analytics and Machine learning, MS Excel, CUDA,Database Management: MySQL, 
 
       </div>
       <div className='team-item'>
-            <img src='.png' alt='rimsha' className='team-img'></img>
+            <img src='sher.png' alt='rimsha' className='team-img'></img>
             <h3>Dr.Sher Muhammad Daudpota</h3>
             <div className='team-info'>
-              <p>Supervisor</p>
+              <p >Supervisor</p>
               <p>He is presently serving as Professor of Computer Science and Director of Quality Enhancement Cell at Sukkur IBA University. He teach Data Science, Machine Learning, Deep Learning, Natural Language Processing, Artificial Intelligence (AI) 
                 and Programming Courses at Undergraduate and Post Graduate levels. He is also serving as Project Manager on recently awarded five years' NORPART-CONNECT (2022-2026) which is a partnership between Sukkur 
                 IBA University and NTNU Norway for quality assurance in higher education.</p>

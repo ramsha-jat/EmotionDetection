@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button, Box, Alert } from '@mui/material';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 
 const UserLogin = () => {
@@ -17,18 +18,31 @@ const UserLogin = () => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const actualData = {
-      
       email: data.get('email'),
       password: data.get('password'),
     } 
-    if (actualData.email && actualData.password) {
-      console.log(actualData);
-      document.getElementById('login-form').reset()
-      setError({ status: true, msg: "Login Success", type: 'success' })
-      navigate('/dashboard')
-    } else {
-      setError({ status: true, msg: "All Fields are Required", type: 'error' })
-    }
+
+    axios.post("http://10.102.168.193:3002/signin", actualData,
+      {
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }
+  ).then((res) => {
+      console.log(res);
+      if(res.data.success){
+          console.log(actualData);
+          document.getElementById('login-form').reset()
+          setError({ status: true, msg: "Login Success", type: 'success' })
+          navigate('/dashboard')
+      }
+
+
+  }).catch((err) => {
+      console.log(err);
+      alert("Wrong Email or Password! ")
+  })
+   
   }
   return <>
     <Box component='form' noValidate sx={{ mt: 1 }} id='login-form' onSubmit={handleSubmit}>

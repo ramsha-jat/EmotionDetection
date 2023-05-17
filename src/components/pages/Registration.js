@@ -1,7 +1,7 @@
 import React from 'react';
-import {TextField, FormControlLabel, Checkbox, Button, Box, Alert} from '@mui/material';
+import {TextField, FormControlLabel, Checkbox, Button, Box} from '@mui/material';
 import {useState} from 'react';
-import {Form, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 
 const Registration = (props) => {
@@ -16,9 +16,13 @@ const Registration = (props) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
         console.log('-------------------------------------');
-        console.log(data);
+        console.log(data.get('name'));
 
-        axios.post("http://127.0.0.1:3002/signup", data,
+        axios.post("http://10.102.168.193:3002/signup", {
+            name:data.get('name'),
+            email:data.get('email'),
+            password:data.get('password')
+        },
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +52,6 @@ const Registration = (props) => {
             <Box textAlign='center'>
                 <Button type='submit' variant='contained' sx={{mt: 3, mb: 2, px: 5}}>Join</Button>
             </Box>
-            {/*{error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ''}*/}
         </Box>
     </>;
 };

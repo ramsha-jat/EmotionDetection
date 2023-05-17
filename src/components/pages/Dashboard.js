@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import '../../App.css';
-
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 function Dashboard() {
 
     const inputRef = React.useRef(null);  // creates reference (to the invisible input)
@@ -15,13 +16,10 @@ function Dashboard() {
             setFile(null);
         }
     };
-
     useEffect(() => {
         console.log(file);
     }, [file]);
 
-    const handleButtonClick = () => {
-    };
     return (
         <>
             <section>
@@ -53,7 +51,7 @@ function Dashboard() {
                             </li>
 
                             <li style={{marginTop: '20px'}} onClick={() => {
-                                alert('hello')
+                                
                             }}>
 
                                 <i className='fas fa-home' style={{
@@ -91,7 +89,8 @@ function Dashboard() {
                                     fontSize: '20px',
                                     textAlign: 'center'
                                 }}></i>
-                                <span className='nav-item'>View</span>
+                                <span className='nav-item'>
+                                 <Link to='/view' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>View</Link></span>
                             </li>
                             <li style={{marginTop: '20px'}}>
                                 <i className='fa fa-download' style={{
@@ -102,7 +101,8 @@ function Dashboard() {
                                     fontSize: '20px',
                                     textAlign: 'center'
                                 }}></i>
-                                <span className='nav-item'>Download</span>
+                                <span className='nav-item'><a href='#' download={'C:\Users\AL-MALAK\Desktop\csvIII\Emotion_detection_MUI\emotion\employees.csv'} style={{textDecoration:'none',color:'#000000'}}>Download</a>
+                                </span>
                             </li>
                             <li style={{marginTop: '20px'}}>
                                 <i className='fa fa-chart-bar' style={{
@@ -124,8 +124,8 @@ function Dashboard() {
                                     top: '14px',
                                     fontSize: '20px',
                                     textAlign: 'center'
-                                }}></i>
-                                <span className='nav-item'>Logout</span>
+                                }}></i> <span className='nav-item' >
+                                 <Link to='/' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>Logout</Link></span>
                             </li>
                         </ul>
                     </nav>
@@ -133,11 +133,9 @@ function Dashboard() {
             </section>
             <section>
                 <div>
-
                 </div>
             </section>
         </>
     )
 }
-
 export default Dashboard;
