@@ -6,7 +6,7 @@ import Footer from '../Footer';
  
 
 const Login = (props) => {
-  const [value, setValue] = useState(0);
+  const [value] = useState(0);
   const handleChange = (event) => {
     event.preventDefault();
     console.log('registration successful');

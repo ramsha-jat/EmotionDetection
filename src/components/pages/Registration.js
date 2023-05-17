@@ -1,17 +1,8 @@
 import React from 'react';
 import {TextField, FormControlLabel, Checkbox, Button, Box} from '@mui/material';
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 
 const Registration = (props) => {
-    const [error, setError] = useState({
-        status: false,
-        msg: "",
-        type: ""
-    })
-    const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
