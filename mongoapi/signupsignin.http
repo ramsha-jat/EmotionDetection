@@ -24,4 +24,8 @@ Content-Type: application/json
   "email": "johndo2e@example.com",
   "password": "password"
 }
+###
+GET http://localhost:3002/images
+Content-Type: application/json
+
 
