@@ -10,24 +10,6 @@ function Dashboard() {
         aspectRatio: 0.6666666667,
         facingMode: "user"
       };
-
-      
-    const inputRef = React.useRef(null);  // creates reference (to the invisible input)
-    const [file, setFile] = React.useState(null);
-
-    const handleFileChange = (e) => {
-        const files = e.target.files;
-        if (files.length > 0) {
-            const file = files[0];
-            setFile(file);
-        } else {
-            setFile(null);
-        }
-    };
-    useEffect(() => {
-        console.log(file);
-    }, [file]);
-
     return (
         <>
             <section>
@@ -72,9 +54,7 @@ function Dashboard() {
                                 }}></i>
                                 <span className='nav-item'>Home</span>
                             </li>
-                            <li style={{marginTop: '20px'}} onClick={() => {
-                                inputRef.current.click();// simulates clicking on file input element and opens dialog box
-                            }}>
+                            <li style={{marginTop: '20px'}}>
                                 <i className='fas fa-upload' style={{
                                     position: 'relative',
                                     width: '70px',
@@ -83,10 +63,8 @@ function Dashboard() {
                                     fontSize: '20px',
                                     textAlign: 'center'
                                 }}></i>
-                                <input type='file' id='file' ref={inputRef} style={{display: 'none'}}
-                                       onChange={handleFileChange}
-                                />
-                                <span className='nav-item'>Upload</span>
+                                <span className='nav-item'>
+                                <Link to='/uploadimage' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>Upload</Link></span>
                             </li>
                             <li style={{marginTop: '20px'}}>
                                 <i className='fa fa-eye' style={{

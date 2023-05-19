@@ -13,7 +13,8 @@ import Contact from './components/pages/Contact';
 import Support from './components/pages/Support';
 import View from './components/View';
 import RegistrationForm from './components/pages/RegistrationForm';
-
+import UploadEmployeeimage
+ from './components/pages/UploadEmployeeimage';
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
           <Route path='contact' element={<Contact/>}/>
           <Route path='support' element={<Support/>}/>
           <Route path='/view' element={<View/>}/>
+          <Route path='/uploadimage' element={<UploadEmployeeimage/>}/>
     </Routes>
     </Router>
     </>

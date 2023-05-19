@@ -19,7 +19,7 @@ const Login = (props) => {
           <Box sx={{ mx: 3, height: 450 }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
-              {props.value === 0? <Tab label='Login' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> :  <Tab label='Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>}
+               <Tab label='Login' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> 
               </Tabs>
             </Box>
             <UserLogin />

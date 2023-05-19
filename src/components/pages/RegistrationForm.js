@@ -21,10 +21,8 @@ const RegistrationForm = (props) => {
                         <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                             <Tabs value={value} textColor='secondary' indicatorColor='secondary'
                                   onChange={handleChange}>
-                                {props.value === 0 ?
-                                    <Tab label='Login' sx={{textTransform: 'none', fontWeight: 'bold'}}></Tab> :
-                                    <Tab label='Registration' sx={{textTransform: 'none', fontWeight: 'bold'}}></Tab>}
-                            </Tabs>
+                        
+                                    <Tab label='Registration' sx={{textTransform: 'none', fontWeight: 'bold'}}></Tab>                            </Tabs>
                         </Box>
                         <Registration/>
                     </Box>
