@@ -18,7 +18,7 @@ function UploadEmployeeimage() {
       console.log(conFom)
     }
   return (
-    <div>
+    <div >
         <h2  style={{textAlign:'center',margin:'20px',fontSize:'30px',Color:'#FFFFFF'}}>Upload Employee Name and Image</h2>
        
         <form  className='bgs' style={{color:'#FFFFFF'}}>
