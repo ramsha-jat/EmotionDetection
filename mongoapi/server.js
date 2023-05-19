@@ -50,8 +50,10 @@ mongoose.connect(uri, {
 
 // Define the routes
 app.get("/images", async (req, res) => {
-    const f = await Image.find({});
+    const f = await Image.find();
     console.log(f)
+
+    res.json(f)
 });
 
 app.get("/images/monthly", async (req, res) => {

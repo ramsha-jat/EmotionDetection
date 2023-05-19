@@ -1,10 +1,35 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import axios from "axios";
 
 
 function UploadEmployeeimage() {
     const [selectedFile, setSelectedFile] = React.useState(null)
     const [name, setName] = React.useState('')
+    const [objects, setObjects] = React.useState([])
+    const [objectsLoaded, setObjectsLoaded] = React.useState(false)
+    useEffect(() => {
+        axios.get('http://localhost:3002/images').then(r => {
+            const data = r.data
+            for (let i = 0; i < data.length; i++) {
+                let image = data[i].image
+                // convert to image from buffer
+                var uintArray = new Uint8Array(image.data);
+                var converted = [];
+                uintArray.forEach(function (byte) {
+                    converted.push(String.fromCharCode(byte))
+                });
+                data[i].image = converted.join("")
+            }
+            console.log(data)
+            setObjects(data)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (objects.length > 0) {
+            setObjectsLoaded(true)
+        }
+    }, [objects])
     const fileSelectedHandler = event => {
         console.log(event.target.files[0])
         setSelectedFile(event.target.files[0])
@@ -26,7 +51,7 @@ function UploadEmployeeimage() {
             console.log(data)
 
 
-            axios.post('http://localhost:3002/images',  JSON.stringify(data),
+            axios.post('http://localhost:3002/images', JSON.stringify(data),
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -36,7 +61,6 @@ function UploadEmployeeimage() {
                 setFormStatus('Submit')
             })
         }
-
 
 
     }
@@ -73,6 +97,21 @@ function UploadEmployeeimage() {
                     {formStatus}
                 </button>
             </form>
+
+            <div style={{margin: '20px'}}>
+                <h2 style={{textAlign: 'center', margin: '20px', fontSize: '30px', Color: '#FFFFFF'}}>Employee
+                    Images</h2>
+                <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+                    {objectsLoaded && objects.map((object, index) => {
+                            return (<div key={index} style={{margin: '20px'}}>
+                                    <img src={object.image} alt={`image${index}`}/>
+                                    <p style={{textAlign: 'center', fontSize: '20px'}}>{object.name}</p>
+                                </div>
+                            )
+                        }
+                    )}
+                </div>
+            </div>
         </div>
     )
 }
