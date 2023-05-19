@@ -2,7 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // Create a middleware that parses the request body as JSON.
 app.use(express.json());
@@ -25,7 +29,15 @@ const UserSchema = new mongoose.Schema({
 });
 
 
+const ImageSchema = new mongoose.Schema({
+    name: String,
+    image: Buffer,
+    date: Date,
+});
+
+
 const User = mongoose.model("User", UserSchema);
+const Image = mongoose.model("Image", ImageSchema);
 
 
 const uri = "mongodb+srv://ramshabscsf19:mishu_jat1@emotiondetection.sjnysw5.mongodb.net/Emotion";
@@ -34,6 +46,51 @@ mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+
+
+// Define the routes
+app.get("/images", async (req, res) => {
+    const f = await Image.find({});
+    console.log(f)
+});
+
+app.get("/images/monthly", async (req, res) => {
+    const currentMonth = new Date();
+    await Image.find({date: {$gte: currentMonth.toDateString()}}, (err, images) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(images);
+        }
+    });
+});
+
+app.get("/images/:id", async (req, res) => {
+    const id = req.params.id;
+    await Image.findById(id, (err, image) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(image);
+        }
+    });
+});
+
+app.post("/images", async (req, res) => {
+    const image = req.body; // { name: "image name", image: "image data" }
+    const newImage = new Image({
+        name: image.name,
+        image: image.image,
+        date: new Date(),
+    }); // Create a new image instances
+    const sv = await newImage.save()
+    console.log(sv)
+    res.json({
+        message: "Image saved successfully",
+        image: sv,
+    });
+});
+
 
 app.post("/signup", async (req, res) => {
     const {name, email, password} = req.body;
@@ -96,5 +153,7 @@ app.post("/signin", async (req, res) => {
 app.get("/", async (req, res) => {
     res.send("Hello World!");
 });
+
+
 app.listen(3002);
 
