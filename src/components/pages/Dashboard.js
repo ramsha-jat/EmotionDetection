@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 function Dashboard() {
 
-    const videoConstraints = {
-        width: { min: 480 },
-        height: { min: 720 },
-        aspectRatio: 0.6666666667,
-        facingMode: "user"
-      };
+    // const videoConstraints = {
+        // width: { min: 480 },
+        // height: { min: 720 },
+        // aspectRatio: 0.6666666667,
+        // facingMode: "user"
+      // };
     return (
         <>
             <section>
@@ -115,12 +115,11 @@ function Dashboard() {
                             </li>
                         </ul>
                     </nav>
+                    <Webcam imageSmoothing={true}  screenshotFormat='image/webp'  />
+
                 </div>
             </section>
             <section>
-                <div>
-                <Webcam imageSmoothing={true}  screenshotFormat='image/webp'  width={480} height={720} videoConstraints={videoConstraints} />
-                </div>
             </section>
         </>
     )

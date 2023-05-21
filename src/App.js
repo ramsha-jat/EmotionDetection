@@ -13,8 +13,7 @@ import Contact from './components/pages/Contact';
 import Support from './components/pages/Support';
 import View from './components/View';
 import RegistrationForm from './components/pages/RegistrationForm';
-import UploadEmployeeimage
- from './components/pages/UploadEmployeeimage';
+import UploadEmployeeimage from './components/pages/UploadEmployeeimage';
 function App() {
   return (
     <>
