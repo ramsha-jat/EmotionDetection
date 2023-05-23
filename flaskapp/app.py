@@ -1,17 +1,18 @@
-# import tensorflow as tf
+import tensorflow as tf
 import numpy as np
-# import cv2
-# from tensorflow.keras.preprocessing import image
+import cv2
+from tensorflow.keras.preprocessing import image as im
 import flask
 from flask_pymongo import PyMongo
 import io
 from PIL import Image
 import base64
 # Define the connection string
+
 MONGODB_URI = "mongodb+srv://ramshabscsf19:mishu_jat1@emotiondetection.sjnysw5.mongodb.net/Emotion"
 
 emotion=["Anger", "Disgust", "Fear", "Happy", "Sadness","Surprise","Neutral"]
-# model = tf.keras.models.load_model(r"C:/Users/AL-MALAK/Desktop/csvIII/Emotion_detection_MUI/model.h5")
+model = tf.keras.models.load_model(r"C:/Users/AL-MALAK/Desktop/csvIII/Emotion_detection_MUI/model.h5")
 
 
 # Create a Flask app
@@ -59,7 +60,7 @@ def predict():
             imgdata = base64.b64decode(image['image'].decode().replace('data:image/png;base64,', ''))
             fh.write(imgdata)
             fh.close()
-            img = image.load_img(f"imageToSave{i}.png", target_size=(48, 48))
+            img = im.load_img(f"imageToSave{i}.png", target_size=(48, 48))
             img_gray = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2GRAY)  # convert image to grayscale
             x = np.expand_dims(img_gray, axis=-1)  # add channel dimension
             x = x / 255.0  # rescale the pixel values to [0, 1]
