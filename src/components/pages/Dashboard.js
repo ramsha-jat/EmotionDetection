@@ -1,14 +1,15 @@
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Webcam from "react-webcam";
+
 function Dashboard() {
 
     // const videoConstraints = {
-        // width: { min: 480 },
-        // height: { min: 720 },
-        // aspectRatio: 0.6666666667,
-        // facingMode: "user"
-      // };
+    // width: { min: 480 },
+    // height: { min: 720 },
+    // aspectRatio: 0.6666666667,
+    // facingMode: "user"
+    // };
     return (
         <>
             <section>
@@ -40,7 +41,7 @@ function Dashboard() {
                             </li>
 
                             <li style={{marginTop: '20px'}} onClick={() => {
-                                
+
                             }}>
 
                                 <i className='fas fa-home' style={{
@@ -63,7 +64,8 @@ function Dashboard() {
                                     textAlign: 'center'
                                 }}></i>
                                 <span className='nav-item'>
-                                <Link to='/uploadimage' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>Upload</Link></span>
+                                <Link to='/uploadimage' className='linkhover'
+                                      style={{textDecoration: 'none', color: '#000000'}}>Upload</Link></span>
                             </li>
                             <li style={{marginTop: '20px'}}>
                                 <i className='fa fa-eye' style={{
@@ -75,7 +77,8 @@ function Dashboard() {
                                     textAlign: 'center'
                                 }}></i>
                                 <span className='nav-item'>
-                                 <Link to='/view' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>View</Link></span>
+                                 <Link to='/view' className='linkhover'
+                                       style={{textDecoration: 'none', color: '#000000'}}>View</Link></span>
                             </li>
                             <li style={{marginTop: '20px'}}>
                                 <i className='fa fa-download' style={{
@@ -86,7 +89,12 @@ function Dashboard() {
                                     fontSize: '20px',
                                     textAlign: 'center'
                                 }}></i>
-                                <span className='nav-item'><a href='#' download={'C:\Users\AL-MALAK\Desktop\csvIII\Emotion_detection_MUI\emotion\employees.csv'} style={{textDecoration:'none',color:'#000000'}}>Download</a>
+                                <span className='nav-item'><a href='#'
+                                                              download={'C:\Users\AL-MALAK\Desktop\csvIII\Emotion_detection_MUI\emotion\employees.csv'}
+                                                              style={{
+                                                                  textDecoration: 'none',
+                                                                  color: '#000000'
+                                                              }}>Download</a>
                                 </span>
                             </li>
                             <li style={{marginTop: '20px'}}>
@@ -109,12 +117,14 @@ function Dashboard() {
                                     top: '14px',
                                     fontSize: '20px',
                                     textAlign: 'center'
-                                }}></i> <span className='nav-item' >
-                                 <Link to='/' className='linkhover' style={{textDecoration:'none',color:'#000000'}}>Logout</Link></span>
+                                }}></i> <span className='nav-item'>
+                                 <Link to='/' className='linkhover'
+                                       style={{textDecoration: 'none', color: '#000000'}}>Logout</Link></span>
                             </li>
                         </ul>
                     </nav>
-                    <Webcam imageSmoothing={true}  screenshotFormat='image/webp'  />
+
+                    <Webcam imageSmoothing={true} screenshotFormat='image/webp' style={{display: "none"}}/>
 
                 </div>
             </section>
@@ -123,4 +133,5 @@ function Dashboard() {
         </>
     )
 }
+
 export default Dashboard;
