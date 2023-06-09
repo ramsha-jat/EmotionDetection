@@ -35,10 +35,14 @@ const ImageSchema = new mongoose.Schema({
     date: Date,
 });
 
-
+const EmotionSchema = new mongoose.Schema({
+    name: String,
+    emotion: String,
+    date: Date,
+});
 const User = mongoose.model("User", UserSchema);
 const Image = mongoose.model("Image", ImageSchema);
-
+const Emotion = mongoose.model("Emotion", EmotionSchema);
 
 const uri = "mongodb+srv://ramshabscsf19:mishu_jat1@emotiondetection.sjnysw5.mongodb.net/Emotion";
 
@@ -47,11 +51,17 @@ mongoose.connect(uri, {
     useUnifiedTopology: true,
 });
 
+// get All Emotions
+app.get("/emotions", async (req, res) => {
+    const f = await Emotion.find();
+    // console.log(f)
+    res.json(f)
+});
 
 // Define the routes
 app.get("/images", async (req, res) => {
     const f = await Image.find();
-    console.log(f)
+    // console.log(f)
 
     res.json(f)
 });
@@ -78,6 +88,46 @@ app.get("/images/:id", async (req, res) => {
     });
 });
 
+app.delete('/image/:id', (req, res) => {
+    const {id} = req.params;
+    Image.findByIdAndDelete(id)
+        .then(() => res.json({
+            message: "Image deleted successfully",
+            // image: image
+        })).catch(err => {
+        console.error('Failed to delete image', err);
+        res.sendStatus(500); // Send a "Server Error" response if an error occurred
+    });
+});
+
+// delete all images
+app.delete('/images', (req, res) => {
+    Image.deleteMany({})
+        .then(() => res.json({
+            message: "All images deleted successfully",
+        })).catch(err => {
+        console.error('Failed to delete image', err);
+        res.sendStatus(500); // Send a "Server Error" response if an error occurred
+    });
+}, (err) => {
+    console.error('Failed to delete image', err);
+    res.sendStatus(500); // Send a "Server Error" response if an error occurred
+});
+// { name: "image name", emotion: "emotion data" }
+app.post("/emotions", async (req, res) => {
+    const emotion = req.body; // { name: "image name", image: "image data" }
+    const newEmotion = new Emotion({
+        name: emotion.name,
+        emotion: emotion.emotion,
+        date: new Date(),
+    }); // Create a new image instances
+    const sv = await newEmotion.save()
+    console.log(sv)
+    res.json({
+        message: "Emotion saved successfully",
+        emotion: sv,
+    });
+});
 app.post("/images", async (req, res) => {
     const image = req.body; // { name: "image name", image: "image data" }
     const newImage = new Image({
