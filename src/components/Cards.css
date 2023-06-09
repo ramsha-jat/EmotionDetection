@@ -56,6 +56,13 @@
     animation-duration: 2s;
   }
   
+  .cards__item-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 67%;
+    overflow: hidden;
+  }
+
   .cards__item__pic-wrap::after {
     content: attr(data-category);
     position: absolute;
@@ -99,6 +106,12 @@
     line-height: 24px;
   }
   
+  .cards__item_text {
+    color: #252e48;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
   @media only screen and (min-width: 1200px) {
     .content__blog__container {
       width: 84%;

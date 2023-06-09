@@ -1,6 +1,10 @@
 import React, {useEffect} from 'react'
 import axios from "axios";
+import CardItemImage from '../CardItemImage';
 
+const handleClick = () => {
+alert('removed');
+  };
 
 function UploadEmployeeimage() {
     const [selectedFile, setSelectedFile] = React.useState(null)
@@ -98,20 +102,17 @@ function UploadEmployeeimage() {
                 </button>
             </form>
 
-            <div style={{margin: '20px'}}>
+            {<div style={{margin: '20px'}}>
                 <h2 style={{textAlign: 'center', margin: '20px', fontSize: '30px', Color: '#FFFFFF'}}>Employee
                     Images</h2>
                 <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
                     {objectsLoaded && objects.map((object, index) => {
-                            return (<div key={index} style={{margin: '20px'}}>
-                                    <img src={object.image} alt={`image${index}`}/>
-                                    <p style={{textAlign: 'center', fontSize: '20px'}}>{object.name}</p>
-                                </div>
-                            )
-                        }
+                            return (<CardItemImage key={index}  src={object.image} text={object.name} handleClick={handleClick}  />                            )
+                    }
                     )}
                 </div>
-            </div>
+            </div> }
+            
         </div>
     )
 }

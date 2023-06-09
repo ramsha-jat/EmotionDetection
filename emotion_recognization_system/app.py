@@ -12,8 +12,8 @@ import base64
 MONGODB_URI = "mongodb+srv://ramshabscsf19:mishu_jat1@emotiondetection.sjnysw5.mongodb.net/Emotion"
 
 emotion=["Anger", "Disgust", "Fear", "Happy", "Sadness","Surprise","Neutral"]
-model = tf.keras.models.load_model(r"../../model.h5")
-
+#model = tf.keras.models.load_model(r"../../model.h5")
+model = tf.keras.models.load_model(r"C:/Users/AL-MALAK/Desktop/csvIII/Emotion_detection_MUI/model.h5")
 
 # Create a Flask app
 app = flask.Flask(__name__)
