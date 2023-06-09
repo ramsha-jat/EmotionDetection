@@ -3,8 +3,8 @@ import axios from "axios";
 import CardItemImage from '../CardItemImage';
 
 const handleClick = () => {
-alert('removed');
-  };
+    alert('removed');
+};
 
 function UploadEmployeeimage() {
     const [selectedFile, setSelectedFile] = React.useState(null)
@@ -107,12 +107,13 @@ function UploadEmployeeimage() {
                     Images</h2>
                 <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
                     {objectsLoaded && objects.map((object, index) => {
-                            return (<CardItemImage key={index}  src={object.image} text={object.name} handleClick={handleClick}  />                            )
-                    }
+                            console.log(object)
+                            return (<CardItemImage key={index} object={object}/>)
+                        }
                     )}
                 </div>
-            </div> }
-            
+            </div>}
+
         </div>
     )
 }
